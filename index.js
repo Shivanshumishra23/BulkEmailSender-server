@@ -23,7 +23,7 @@ app.use(express.json({ limit: "100mb" }));
 app.use(
   cors({
     // origin: true,
-    origin:"https://bulk-email-sender-client.vercel.app/",
+    origin:"https://bulk-email-sender-client.vercel.app",
     credentials: true,
     optionsSuccessStatus: 200,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
