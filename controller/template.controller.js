@@ -43,8 +43,10 @@ const uploadFileSendEmail = async (req, res, next) => {
   try {
     const { _id, roles, email: userEmail } = req.user;
     const { subject, templateId, emailType } = req.body;
-    let template = req.body.template;
-
+    console.log( emailType);
+    
+let template = req.body.template;
+    console.log( template);
     if (!_id) {
       return res.status(401).json({ message: "Unauthorized user" });
     }
