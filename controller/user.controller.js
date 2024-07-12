@@ -12,8 +12,9 @@ const otpStore = {};
 // Register user
 const registerUser = async (req, res) => {
   try {
+  
     const { email, password, roles } = req.body;
-    if (!email || !password | !roles) {
+    if (!email || !password || !roles) {
       return res
         .status(403)
         .json({ message: "email and password,roles required fields" });
@@ -21,6 +22,7 @@ const registerUser = async (req, res) => {
     if (!req.body.roles) {
       return res.status(403).json({ message: "roles is missing" });
     }
+   
 
     const emailExist = await userModels.findOne({ email: email, roles: roles });
     if (emailExist) {
@@ -43,6 +45,49 @@ const registerUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+// Register user by CTO
+const registerUserAsCto = async (req, res) => {
+  try {
+    const { email, password, roles } = req.body;
+    const checkUser= req.user.roles;
+
+    // Check if the logged-in user is a CTO
+    console.log(checkUser)
+    if (checkUser !== "cto") {
+      return res
+        .status(403)
+        .json({ message: "Only CTO can create new users" });
+    }
+
+    if (!email || !password || !roles) {
+      return res
+        .status(403)
+        .json({ message: "email and password, roles required fields" });
+    }
+
+    const emailExist = await userModels.findOne({ email, roles });
+    if (emailExist) {
+      return res
+        .status(403)
+        .json({ message: `email already exist with ${roles} roles` });
+    }
+
+    const hashPassword = await bcrypt.hash(password, SALT);
+    const newUser = new userModels({
+      email,
+      password: hashPassword,
+      roles,
+    });
+    const user = await newUser.save();
+    res.status(201).json({ message: "User created by CTO", user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 
 // Login user
 const lognUser = async (req, res) => {
@@ -506,7 +551,7 @@ const dashboardData = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
+ 
 module.exports = {
   registerUser,
   lognUser,
@@ -515,4 +560,5 @@ module.exports = {
   createNewPassword,
   resetPassword,
   dashboardData,
+  registerUserAsCto
 };

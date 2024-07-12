@@ -8,13 +8,14 @@ const {
   createNewPassword,
   resetPassword,
   dashboardData,
+  registerUserAsCto,
 } = require("../controller/user.controller");
 const { authenticate } = require("../middleware/auth.middleware");
 const authRouter = express.Router();
 
 // Register user - Admin handle
 authRouter.post("/register", registerUser);
-
+authRouter.post("/register-cto", authenticate, registerUserAsCto); // New route for CTO
 // Login based on rolesresetPassword
 authRouter.post("/login", lognUser);
 

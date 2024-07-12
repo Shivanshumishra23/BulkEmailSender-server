@@ -26,6 +26,7 @@ const authenticate = async (req, res, next) => {
     // Verify the token
     const decoded = await jwt.verify(jwtToken, secret);
     req.user = decoded;
+    // console.log(req.user.roles);
     next();
   } catch (error) {
     console.log("jwt verify error: " + error);
