@@ -115,7 +115,7 @@ const newSignature = () => `
 
     <div class="contact-info">
       <p>Mobile: +919038943020</p>
-      <p>Web: <a href="https://shivanshumishra-portfolio.netlify.app/" target="_blank">www.tutecktechnologies.com</a></p>
+      <p>Web: <a href="https://shivanshumishra-portfolio.netlify.app/" target="_blank">www.shivsbghfh.com</a></p>
       <p>Email: <a href="mailto:mishrashivanshu2004@gmail.com">mishrashivanshu2004@gmail.com</a></p>
     </div>
 
