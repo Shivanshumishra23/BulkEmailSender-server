@@ -111,16 +111,16 @@ const newSignature = () => `
     </div>
 
     <p class="name">Harmeet Kaur Sahdev</p>
-    <p class="title">Sr. Growth & Marketing Manager at TuTeck Technologies Pvt Ltd</p>
+    <p class="title">ShivanshuMishra Techonologies</p>
 
     <div class="contact-info">
       <p>Mobile: +919038943020</p>
-      <p>Web: <a href="http://www.tutecktechnologies.com" target="_blank">www.tutecktechnologies.com</a></p>
-      <p>Email: <a href="mailto:harmeetkaur.sahdev@tuteck.com">harmeetkaur.sahdev@tuteck.com</a></p>
+      <p>Web: <a href="https://shivanshumishra-portfolio.netlify.app/" target="_blank">www.tutecktechnologies.com</a></p>
+      <p>Email: <a href="mailto:mishrashivanshu2004@gmail.com">mishrashivanshu2004@gmail.com</a></p>
     </div>
 
     <div class="address">
-      <p>DEPL Building, 3rd Floor Y5, College More, Sector V Salt Lake, Kolkata, West Bengal, India - 700091</p>
+      <p>College More, Sector V Salt Lake, Kolkata</p>
     </div>
   </div>
 
